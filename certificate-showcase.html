@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Certificate Showcase</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>My Certificate Showcase</h1>
+    <p>Achievements and learning milestones</p>
+    <button id="theme-toggle">☀️ Light Mode</button>
+  </header>
+
+  <main class="certificates">
+    <div class="certificate-card" onclick="openModal('cert1.jpg')">
+      <img src="cert-1.jpg" alt="Certificate 1" />
+      <h2>IBM Fullstack App Dev Capstone Project</h2>
+      <p>Completed on: Sept 2024</p>
+    </div>
+    <div class="certificate-card" onclick="openModal('cert2.jpg')">
+      <img src="cert-2.jpg" alt="Certificate 2" />
+      <h2>Microservices & Serverless App Development</h2>
+      <p>Completed on: Sept 2024</p>
+    </div>
+    <div class="certificate-card" onclick="openModal('cert3.jpg')">
+      <img src="cert-3.jpg" alt="Certificate 3" />
+      <h2>Phyton for Data Science, Ai & Development</h2>
+      <p>Completed on: Sept 2024</p>
+    </div>
+    <div class="certificate-card" onclick="openModal('cert4.jpg')">
+      <img src="cert-4.jpg" alt="Certificate 4" />
+      <h2>IBM Generative AI</h2>
+      <p>Completed on: Feb 2025</p>
+    </div>
+    <div class="certificate-card" onclick="openModal('cert5.jpg')">
+      <img src="cert-5.jpg" alt="Certificate 5" />
+      <h2>IBM Generative AI Prompt Engineering Basics</h2>
+      <p>Completed on: Feb 2025</p>
+    </div>
+    <div class="certificate-card" onclick="openModal('cert6.jpg')">
+      <img src="cert-6.jpg" alt="Certificate 6" />
+      <h2>Chinese for HSK 2 - Peking University</h2>
+      <p>Completed on: Feb 2025</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Willy Razalie. All rights reserved.</p>
+  </footer>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" onclick="closeModal()">
+    <span class="close">×</span>
+    <img class="modal-content" id="modal-img" />
+  </div>
+
+  <script>
+    const toggleButton = document.getElementById("theme-toggle");
+    const html = document.documentElement;
+
+    toggleButton.addEventListener("click", () => {
+      const currentTheme = html.getAttribute("data-theme");
+      if (currentTheme === "dark") {
+        html.setAttribute("data-theme", "light");
+        toggleButton.textContent = "🌙 Dark Mode";
+      } else {
+        html.setAttribute("data-theme", "dark");
+        toggleButton.textContent = "☀️ Light Mode";
+      }
+    });
+
+    function openModal(imageSrc) {
+      const modal = document.getElementById("modal");
+      const modalImg = document.getElementById("modal-img");
+      modal.style.display = "flex";
+      modalImg.src = "certificates/" + imageSrc;
+    }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
